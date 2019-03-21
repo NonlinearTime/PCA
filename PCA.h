@@ -17,6 +17,26 @@ using namespace Eigen;
 
 class PCA {
     MatrixXd data;
+    double threshold;
+public:
+    double getThreshold() const;
+
+    void setThreshold();
+
+public:
+    const MatrixXd &getData() const;
+
+    void setData(const MatrixXd &data);
+
+    const MatrixXd &getCov() const;
+
+    const MatrixXd &getEigen_vectors() const;
+
+    const MatrixXd &getEigen_values_matrix() const;
+
+    const MatrixXd &getResult() const;
+
+private:
     MatrixXd cov;
     MatrixXd eigen_vectors;
     MatrixXd eigen_values_matrix;

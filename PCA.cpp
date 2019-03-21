@@ -26,7 +26,7 @@ void PCA::eigen() {
 
 
 
-void PCA::set_max_component(double threshold) {
+void PCA::set_max_component() {
     double sum = 0;
     double tot_sum = eigen_values_matrix.sum();
     uint32_t cnt = 0;
@@ -77,6 +77,39 @@ void PCA::back_project(MatrixXd mat, MatrixXd eigen_vectors) {
     MatrixXd P_inverse = P.inverse();
     MatrixXd raw_data = P_inverse * mat;
 }
+
+const MatrixXd &PCA::getData() const {
+    return data;
+}
+
+void PCA::setData(const MatrixXd &data) {
+    PCA::data = data;
+}
+
+const MatrixXd &PCA::getCov() const {
+    return cov;
+}
+
+const MatrixXd &PCA::getEigen_vectors() const {
+    return eigen_vectors;
+}
+
+const MatrixXd &PCA::getEigen_values_matrix() const {
+    return eigen_values_matrix;
+}
+
+const MatrixXd &PCA::getResult() const {
+    return result;
+}
+
+double PCA::getThreshold() const {
+    return threshold;
+}
+
+void PCA::setThreshold(double threshold) {
+    PCA::threshold = threshold;
+}
+
 
 
 
